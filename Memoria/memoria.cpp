@@ -1,3 +1,7 @@
+/// memoria.cpp
+// Por Alejandro Buzón García
+// Created: 28/03/2026
+// Updated: 28/03/2026
 #include <stdio.h>
 #include <stdlib.h>
 #include "memoria.h"
