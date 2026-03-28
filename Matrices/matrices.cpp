@@ -1,3 +1,7 @@
+/// FILE: matrices.cpp
+///     - AUTHOR: Alejandro Buzón García (@alexbuzon10)
+///     - CREATED: 28/03/2026
+///     - UPDATED: 28/03/2026
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -74,7 +78,7 @@ double determinante(strcMatriz mat){
     return determinante;
 }
 
-void imprimirMatrices(strcMatriz mat){
+void imprimirMatriz(strcMatriz mat){
     printf("[");
     for (int i = 0; i < mat.filas; i++){
         if (i == 0) printf("[");

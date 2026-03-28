@@ -1,45 +1,43 @@
-/// memoria.h
-// Por Alejandro Buzón García
-// Created: 28/03/2026
-// Updated: 28/03/2026 
+/// FILE: memoria.h
+///     - AUTHOR: By Alejandro Buzón García (@alexbuzon10)
+///     - CREATED: 28/03/2026
+///     - UPDATED: 28/03/2026 
 #ifndef MEMORIA_H
 #define MEMORIA_H
     /**
-     * double **reservarMemoriaMatriz(int filas, int columnas)
-     *      Descripción: Reserva la memoria de una matriz dinámica
-     *      Parámetros: 
-     *          - int filas. Número de filas
-     *          - int columnas. Número de columnas
-     *      Devolución:
-     *          - Puntero de una matriz dinámica
+     * FUNCTION: double **reservarMemoriaMatriz(int filas, int columnas)
+     *      DESCRIPTION: reservation of a dinamic matrix
+     *      PARAMETERS: 
+     *          - int filas
+     *          - int columnas
+     *      RETURN: a dinamic matrix pointer
      */
     double **reservarMemoriaMatriz(int filas, int columnas);
 
     /**
-     * void liberarMemoriaMatriz(double ***matriz)
-     *      Descripción: Libera la memoria de una matriz dinámica
-     *      Parámetros: 
-     *          - double ***matriz. La matriz dinámica pasada por referencia
-     *      Devolución: NADA
+     * FUNCTION: void liberarMemoriaMatriz(double ***matriz)
+     *      DESCRIPTION: this function free the dinamic matrix memory
+     *      PARAMETERS: 
+     *          - double ***matriz
+     *      RETURN: Nothing
      */
     void liberarMemoriaMatriz(double ***matriz);
 
     /**
-     * double *reservarMemoriaVector(int tam)
-     *      Descripción: Reserva la memoria de un vector dinámico
-     *      Parámetros:
-     *          - int tam. Tamaño del vector dinámico
-     *      Devolución:
-     *          - Puntero de un vectro dinámico.
+     * FUNCTION: double *reservarMemoriaVector(int tam)
+     *      DESCRIPTION: reservation of a dinamic vector
+     *      PARAMETERS:
+     *          - int tam. 
+     *      RETURN: a dinamic vector pointer
      */
     double *reservarMemoriaVector(int tam);
 
     /**
-     * void liberarMemoriaVector(double **vec)
-     *      Descripción: Libera la memoria de un vector dinámico
-     *      Parámetros:
-     *          - double **vec. El vector dinámico pasado por referencia
-     *      Devolución: NADA
+     * FUNCTION: void liberarMemoriaVector(double **vec)
+     *      DESCRIPTION: this function free the dinamic vector memory
+     *      PARAMETERS:
+     *          - double **vec
+     *      RETURN: Nothing
      */
     void liberarMemoriaVector(double **vec);
 #endif

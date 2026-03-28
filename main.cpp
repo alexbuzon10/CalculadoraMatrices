@@ -1,3 +1,7 @@
+/// FILE: main.cpp
+///     - AUTHOR: Alejandro Buzón García (@alexbuzon10)
+///     - CREATED: 28/03/2026
+///     - UPDATED: 28/03/2026
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
@@ -6,13 +10,23 @@
 
 using namespace std;
 
+/**
+ * FUNCTION: int main(int argc, char const *argv[])
+ *      DESCRIPTION: main function
+ *      PARAMETERS:
+ *          - int argc
+ *          - char const *argv[]
+ *      RETURN: EXIT_SUCCESS : 0 | EXIT_FAILURE : 1
+ */
 int main(int argc, char const *argv[]){
     // Compruebo si el usuario introduce argumentos
     if (argc < 2){
         printf("Debe introducir al menos algún argumento.\n");
         return EXIT_FAILURE;
     }
-    string argumento = argv[1];
+
+    string argumento = argv[1]; // Almaceno el argumento introducido por el usuario
+
     ///// TESTS
     if (argumento == "--multiplicar"){
         // Declaro las matrices de pruebas
@@ -21,15 +35,14 @@ int main(int argc, char const *argv[]){
         strcMatriz mat12 = multiplicarMatrices(mat1, mat2);
 
         //Imrpimo las matrices
-
         printf("Matriz 1:\n");
-        imprimirMatrices(mat1);
+        imprimirMatriz(mat1);
 
         printf("Matriz 2:\n");
-        imprimirMatrices(mat2);
+        imprimirMatriz(mat2);
 
         printf("Matriz resultado:\n");
-        imprimirMatrices(mat12);
+        imprimirMatriz(mat12);
 
         // libero la memoria antes de finalizar
         liberarMemoriaMatriz(&(mat1.matriz));
@@ -47,8 +60,8 @@ int main(int argc, char const *argv[]){
         }
         strcMatriz mat = rellenarMatrizAleatorioEnteros(atoi(argv[2]), atoi(argv[2]));
 
-        // La imprimo
-        imprimirMatrices(mat);
+        // Imprimo la matriz generada aleatoriamente
+        imprimirMatriz(mat);
 
         // Imprimo su determinante
         printf("El determinante de la matriz es %.4lf.\n\n", determinante(mat));
