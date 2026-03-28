@@ -24,10 +24,11 @@ double **reservarMemoriaMatriz(int filas, int columnas){
 }
 
 void liberarMemoriaMatriz(double ***matriz){
-    free(**matriz);
-    **matriz = NULL;
-    free(*matriz);
-    *matriz = NULL;
+    if(*matriz != NULL){
+        free((*matriz)[0]);
+        free(*matriz);
+        *matriz = NULL;
+    }
 }
 
 double *reservarMemoriaVector(int tam){
