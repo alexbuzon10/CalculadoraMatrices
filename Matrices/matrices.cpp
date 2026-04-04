@@ -1,10 +1,10 @@
 /// FILE: matrices.cpp
 ///     - AUTHOR: Alejandro Buzón García (@alexbuzon10)
 ///     - CREATED: 28/03/2026
-///     - UPDATED: 28/03/2026
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+///     - UPDATED: 4/04/2026
+#include <cstdio>
+#include <cstdlib>
+#include <ctime>
 #include <cmath>
 #include "matrices.h"
 #include "../Memoria/memoria.h"
@@ -12,6 +12,8 @@
 strcMatriz multiplicarMatrices(strcMatriz m1, strcMatriz m2){
     if (m1.columnas != m2.filas){
         printf("No se pueden multiplicar las matrices.\n");
+        liberarMemoriaMatriz(&(m1.matriz));
+        liberarMemoriaMatriz(&(m2.matriz));
         exit(EXIT_FAILURE);
     }
     strcMatriz matrizResultado;
@@ -32,10 +34,11 @@ strcMatriz multiplicarMatrices(strcMatriz m1, strcMatriz m2){
 double determinante(strcMatriz mat){
     if (mat.filas != mat.columnas){
         printf("La matriz introducida no es cuadrada.\n");
+        liberarMemoriaMatriz(&(mat.matriz));
         exit(EXIT_FAILURE);
     }
     // Para calcular el determinante voy a aplicar el método de Gauss
-    double auxm[mat.filas][mat.columnas];
+    double **auxm = reservarMemoriaMatriz(mat.filas, mat.columnas);
     // Duplicando la información de la matriz
     for (int i = 0; i < mat.filas; i++){
         for (int j = 0; j < mat.columnas; j++){
@@ -54,13 +57,16 @@ double determinante(strcMatriz mat){
         }else{
             for (int j = i + 1; j < mat.filas; j++){
                 if (fabs(mat.matriz[j][i]) > 1e-9){
-                    double *aux = mat.matriz[i];
-                    mat.matriz[i] = mat.matriz[j];
-                    mat.matriz[j] = aux;
+                    for (int k = 0; k < mat.filas; k++){
+                        double temp = mat.matriz[i][k];
+                        mat.matriz[i][k] = mat.matriz[j][k];
+                        mat.matriz[j][k] = temp;
+                    }
                     determinante *= -1;
                     i--;
                     break;
                 } else if (j == mat.filas - 1 && fabs(mat.matriz[j][i]) < 1e-9){
+                    liberarMemoriaMatriz(&auxm);
                     return 0.0;
                 }
             }
@@ -75,6 +81,7 @@ double determinante(strcMatriz mat){
             mat.matriz[i][j] = auxm[i][j];
         }
     }
+    liberarMemoriaMatriz(&auxm);
     return determinante;
 }
 

@@ -1,9 +1,9 @@
 /// FILE: main.cpp
 ///     - AUTHOR: Alejandro Buzón García (@alexbuzon10)
 ///     - CREATED: 28/03/2026
-///     - UPDATED: 28/03/2026
-#include <stdio.h>
-#include <stdlib.h>
+///     - UPDATED: 4/04/2026
+#include <cstdio>
+#include <cstdlib>
 #include <string>
 #include "./Matrices/matrices.h"
 #include "./Memoria/memoria.h"
