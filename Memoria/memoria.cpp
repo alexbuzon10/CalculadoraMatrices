@@ -1,9 +1,7 @@
-/**
- * @file    memoria.cpp
- * @brief   Programa de la libería libMemoria.a
- * @author  Alejandro Buzón García
- * @date    28/03/2026
- */
+/// FILE: memoria.cpp
+///     - AUTHOR: Alejandro Buzón García (@alexbuzon10)
+///     - CREATED: 28/03/2026
+///     - UPDATED: 04/04/2026
 #include <cstdio>
 #include <cstdlib>
 #include <new>
